@@ -11,4 +11,8 @@ class Display
     end
     puts ''
   end
+
+  def winner(current_player)
+    puts "Player #{current_player} Wins!!"
+  end
 end

@@ -8,9 +8,16 @@ class Game
   end
 
   def start
-    while @board.won?(@board.the_player) == false
+    loop do
       @display.print_board(@board.the_board)
-      @board.user_input
+      @board.place_move
+      current_player = @board.the_player
+      @board.change_player
+      next unless @board.won?(current_player)
+
+      @display.print_board(@board.the_board)
+      @display.winner(current_player)
+      break
     end
   end
 end
